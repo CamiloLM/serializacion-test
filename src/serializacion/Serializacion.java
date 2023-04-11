@@ -12,14 +12,11 @@ public class Serializacion {
 
     public static void main(String[] args) {
         System.out.println("Hello World!");
-        generarListaPrueba();
+//        generarListaPrueba();
         
         // Para leer una lista enlazada de objetos en memoria
-//        LinkedList<Articulo> miRopa = leerObjeto();
-//        for (Articulo articulo: miRopa) {
-//            System.out.println(articulo);
-//        }
-
+        LinkedList<Articulo> miRopa = leerObjeto();
+        System.out.println(miRopa.size());
     }
     
     public static void generarListaPrueba() {
@@ -32,7 +29,7 @@ public class Serializacion {
         String[] tipos = {"Blusas", "Chaquetas", "Camiseta", "Top", "Jersey",
             "Sueter", "Esqueletos", "Camisas", "Sudaderas", "Polos", "Chalecos"};
         Random rand = new Random();
-        int limite = 1000000;
+        int limite = 10;
         int i = 1;
         while (i <= limite) {
             obj = new Superior(
@@ -51,7 +48,7 @@ public class Serializacion {
     
     public static void guardarObjeto(LinkedList<Articulo> ropa) {
         try {
-            try (var writeFile = new ObjectOutputStream(new FileOutputStream("./src/datos.dat"))) {
+            try (var writeFile = new ObjectOutputStream(new FileOutputStream("./src/datos1.dat"))) {
                 writeFile.writeObject(ropa);
                 System.out.println("Objeto guardado con exito.");
             }
